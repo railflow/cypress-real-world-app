@@ -137,6 +137,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development concurrently yarn:start:react yarn:start:api:watch",
+    "dev:docker": "cross-env NODE_ENV=development concurrently yarn:start:react:docker yarn:start:api:watch",
     "dev:coverage": "cross-env NODE_ENV=development CYPRESS_COVERAGE=true concurrently yarn:start:react yarn:start:api:watch",
     "dev:auth0": "cross-env VITE_AUTH0=true NODE_ENV=development concurrently yarn:start:react yarn:start:api:watch",
     "dev:okta": "cross-env VITE_OKTA=true NODE_ENV=development concurrently yarn:start:react yarn:start:api:watch",
@@ -151,6 +152,7 @@
     "start:ci": "cross-env NODE_ENV=test concurrently yarn:start:react:proxy-server yarn:start:api",
     "prestart:ci": "yarn predev:cognito:ci",
     "start:react": "vite",
+    "start:react:docker": "vite --host=0.0.0.0",
     "start:empty": "cross-env NODE_ENV=development EMPTY_SEED=true concurrently yarn:start:react yarn:start:api:watch",
     "lint": "eslint && prettier --check \"**/**.{ts,js,tsx}\" \"*.{json,md,yml}\"",
     "list:dev:users": "cat data/database.json | json -a users | json -a id username",
